@@ -831,12 +831,22 @@ This project provides a Django starter template integrated with LangChain. It us
 
    - The Django application will be running on `http://localhost:8000`.
 
-3. **Apply Migrations:**
+3. **Commands:**
 
    To set up the SQLite database, apply the Django migrations:
 
    ```bash
-   docker-compose exec web python manage.py migrate
+   # Run migrations
+docker-compose exec backend python manage.py migrate
+
+# Create superuser
+docker-compose exec backend python manage.py createsuperuser
+
+# Shell access
+docker-compose exec backend bash
+
+# Django shell
+docker-compose exec backend python manage.py shell
    ```
 
 4. **Create a Superuser (Optional):**
