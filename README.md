@@ -2,6 +2,24 @@
 
 This project is a Django starter template integrated with LangChain, using Docker and Poetry for efficient dependency management. It includes SQLite for database management in the development environment.
 
+## Getting Started
+```bash
+pyenv local 3.10.15
+cd backend/
+pyenv local 3.10.15
+poetry env use 3.10.15
+poetry install
+docker-compose up --build
+```
+Ensure correct python runtime is used in vscode
+
+```bash
+docker-compose exec backend poetry run python manage.py migrate
+```
+
+
+
+
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
@@ -126,7 +144,7 @@ This will:
 To set up the database schema for the project, apply Django migrations inside the Docker container:
 
 ```bash
-docker-compose exec web poetry run python manage.py migrate
+docker-compose exec backend poetry run python manage.py migrate
 ```
 
 ### Step 5: Create a Superuser
@@ -134,7 +152,7 @@ docker-compose exec web poetry run python manage.py migrate
 If you want to access the Django admin panel, create a superuser account:
 
 ```bash
-docker-compose exec web poetry run python manage.py createsuperuser
+docker-compose exec backend poetry run python manage.py createsuperuser
 ```
 
 Follow the prompts to create the username, email, and password.
